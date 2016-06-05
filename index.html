@@ -1,72 +1,76 @@
 <!doctype html>
 <html>
 
-	<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
-	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.js"></script>
-	<link rel="stylesheet" href="style.css">
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-	<body>
-	<div class="container">
-		<!-- <form> -->
-		<div class="row">
-			<div class="col-md-8 text-left">
-				<input id="filter" type="text" value="" placeholder="Фильтр">
-				<input id="fltr" type="submit" value="search">
-			</div>
-			<div class="col-md-4 text-right">
-				<input id="addnew" type="submit" value="Add New">
-			</div>
-		</div>
+<body>
+<div class="container">
 
-		<table class="table table-bordered">
-			<thead>
-				<th>Name <img id="srt1" class="pull-right" src="triangle.png"></th>
-				<th>Price <img id="srt2" class="pull-right" src="triangle.png"></th>
-				<th>Actions</th>
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
+    <div class="row">
+        <div class="col-md-8 text-left">
+            <div class="form-group form-inline">
+                <input id="filter" type="text" class="form-control" value="" placeholder="Фильтр">
+                <input id="fltr" class="btn btn-primary" type="submit" value="search">
+            </div>
 
-		<div class="row">
-			<div class="col-md-4">    
-				<label for="inputName">Name:</label>
-			</div>
-			<div class="col-md-3">
-				<label for="inputCount">Count:</label>
-			</div>
-			<div class="col-md-3">
-				<label for="inputName">Price:</label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<input id="name" type="text" value="Name">
-			</div>
-			<div class="col-md-3">
-				<input id="count" type="number" value="0">
-			</div>
-			<div class="col-md-3">
-				<input id="price" type="text" value="Price">
-			</div>
-			<div class="col-md-2"> 
-				<input id="add" class="pull-right" type="submit" value="Add">
-			</div>
-		</div>
+        </div>
+        <div class="col-md-4 text-right">
+            <input id="addnew" class="btn btn-primary" type="submit" value="Add New">
+        </div>
+    </div>
 
-			<div class="row">
-			<div class="col-md-12">
-			<label id="error" for="forerror"></label>
-			</div>
-			</div>
-		</div>
+    <table class="table table-bordered">
+        <thead>
+        <th>Name <img id="srt1" class="pull-right" src="triangle.png"></th>
+        <th>Price <img id="srt2" class="pull-right" src="triangle.png"></th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
 
-	<!-- </form> -->
-	</div>
-	<script src="main.js"></script>
-	</body>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div id="nameFormGroup" class="form-group">
+                <label for="name">Name:</label>
+                <input class="form-control" id="name" name="name" type="text" value="" placeholder="Name"
+                       maxlength="15">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="count">Count:</label>
+                <input class="form-control" id="count" type="text" name="count" value="" placeholder="Count">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="name">Price:</label>
+                <input class="form-control" id="price" type="text" name="price" value="" placeholder="Price">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <input id="add" style="margin-top: 25px" class="btn btn-primary pull-right" type="submit" value="Add">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <span id="error" class="help-block"></span>
+        </div>
+    </div>
+</div>
+
+</div>
+<script src="main.js"></script>
+</body>
 </html>

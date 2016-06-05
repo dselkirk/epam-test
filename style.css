@@ -22,3 +22,7 @@ input[type=submit]{
 	height: 12px;
 	width: 12px;
 }
+
+td {
+	vertical-align: middle !important;
+}
