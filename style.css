@@ -1,0 +1,24 @@
+.container{
+	padding: 10px;
+	width: 60%;
+	margin-left: 0;
+}
+
+.table{
+margin: 10px 0 10px;
+}
+
+input[type=submit]{
+	margin: 0 5px;
+} 
+
+#error{
+	margin: 10px 0 10px;
+	font-size: 16px;
+	color: rgb(176,0,0);
+}
+
+#srt1,#srt2{
+	height: 12px;
+	width: 12px;
+}
