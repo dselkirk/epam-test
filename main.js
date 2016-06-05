@@ -30,7 +30,7 @@ function isCorrect() {
         $('#error').text('Поле Name не может быть пустым!');
         $('#nameFormGroup').addClass('has-error');
     }
-    else if ($('#name').val().length >= 15) {
+    else if ($('#name').val().length > 15) {
         $('#error').text('Максимальная длина 15 символов!');
         $('#nameFormGroup').addClass('has-error');
     }
@@ -148,14 +148,14 @@ function eventFilter() {
 }
 
 function convert(price) {
-    var money = '$' + price.toString().split(/(?=(?:\d{3})+$)/);
+    var money = '$' + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return money;
 }
 
 function reverseConvert(money) {
     if (money.substr(0, 1) == '$' && money !== undefined) {
         var price = money.substr(1);
-        return price.replace(/\D/g, '');
+        return price.replace(',','');
     } else {
         return '';
     }
@@ -182,6 +182,16 @@ $('#addnew').click(function () {
     });
 });
 
+$('#count').keyup(function () {
+    var val = $('#count').val().replace(/\D/g, '');
+    $('#count').val(val);
+});
+
+$('#price').keyup(function () {
+    var val = $('#price').val().replace(/[^\d\.]/g, '');
+    $('#price').val(val);
+});
+
 //событие для конвертации
 $('#price').blur(function () {
     $('#price').val(convert(Number($('#price').val())));
@@ -189,11 +199,6 @@ $('#price').blur(function () {
 
 $('#price').focus(function () {
     $('#price').val(reverseConvert($('#price').val()));
-});
-
-$('#count').keyup(function () {
-    var val = $('#count').val().replace(/\D/g, '');
-    $('#count').val(val);
 });
 
 eventSort('#srt1', compareItemName);
