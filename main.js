@@ -153,7 +153,7 @@ function convert(price) {
 function reverseConvert(money) {
     if (money.substr(0, 1) == '$' && money !== undefined) {
         var price = money.substr(1);
-        return price.replace(',','');
+        return price.replace(/,/g, '');
     } else {
         return '';
     }
