@@ -1,20 +1,17 @@
 window.table_item = [];
+window.filter='';
 
 function initItem() {
     if (isCorrect()) {
-        if ($('#price').val().substr(0, 1) == '$') {
             var item = {
                 name: $('#name').val(),
-                count: Number($('#count').val()),
-                price: Number(reverseConvert($('#price').val()))
+                count: Number($('#count').val())
             };
+        if ($('#price').val().substr(0, 1) == '$'){
+            item['price']=Number(reverseConvert($('#price').val()));
         } else {
-            var item = {
-                name: $('#name').val(),
-                count: Number($('#count').val()),
-                price: Number($('#price').val())
-            };
-        }
+            item['price']=Number($('#price').val());
+            }
         table_item.push(item);
         drowNewRow(table_item.length - 1);
         addEventDelete(table_item.length - 1);
@@ -49,7 +46,7 @@ function drowNewRow(num) {
     if (table_item[num] === undefined) {
         return;
     }
-    if (table_item[num].name.toLowerCase().indexOf($('#filter').val().toLowerCase()) >= 0) {
+    if (table_item[num].name.toLowerCase().indexOf(filter.toLowerCase()) >= 0) {
         $('tbody').append(
             "<tr id='tr" + num + "''><td>" + table_item[num].name + "<span class='pull-right'>" + table_item[num].count + "</span></td><td>"
             + convert(table_item[num].price) + "</td><td>" +
@@ -143,6 +140,7 @@ function eventFilter() {
         //if ($('filter').val()==''){
         //    return;
         //}
+        filter=$('#filter').val();
         redraw();
     })
 }
@@ -200,6 +198,11 @@ $('#price').blur(function () {
 $('#price').focus(function () {
     $('#price').val(reverseConvert($('#price').val()));
 });
+
+//$('#name').keyup(function () {
+//    $('#error').text('');
+//    $('#nameFormGroup').removeClass('has-error');
+//});
 
 eventSort('#srt1', compareItemName);
 eventSort('#srt2', compareItemPrice);
